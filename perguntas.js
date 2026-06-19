@@ -32,7 +32,7 @@ const allQuestions = [
       "A demanda de moeda tem relação direta com a taxa de juros da economia",
       "O efeito da moeda sobre o nível de preços é neutro, qualquer que seja o grau de utilização da capacidade instalada da economia"
     ],
-    "correct": 0,
+    "correct": 2,
     "categoria": "Economia"
   },
   {
@@ -174,7 +174,7 @@ const allQuestions = [
       "Apenas as alternativas II, IV e V estão corretas",
       "Apenas as alternativas I e III estão corretas"
     ],
-    "correct": 0,
+    "correct": 3,
     "categoria": "Economia"
   },
   {
