@@ -115,7 +115,7 @@ const allQuestions = [
       "PIB",
       "Famílias"
     ],
-    "correct": 1,
+    "correct": 3,
     "categoria": "Economia"
   },
   {
@@ -138,7 +138,7 @@ const allQuestions = [
       "proporcional, pois à medida que a renda do cidadão se eleva, o imposto aumenta proporcionalmente ao aumento da renda",
       "que atende ao princípio da capacidade de pagar"
     ],
-    "correct": 2,
+    "correct": 0,
     "categoria": "Economia"
   },
   {
@@ -162,7 +162,7 @@ const allQuestions = [
       "desenvolvimentista",
       "antiinflacionária"
     ],
-    "correct": 3,
+    "correct": 0,
     "categoria": "Economia"
   },
   {
@@ -210,7 +210,7 @@ const allQuestions = [
       "aumentar a taxa do depósito compulsório",
       "diminuir a meta de inflação"
     ],
-    "correct": 0,
+    "correct": 1,
     "categoria": "Economia"
   },
   {
@@ -342,7 +342,7 @@ const allQuestions = [
       "aumentar o déficit em conta corrente do balanço de pagamentos brasileiro",
       "tornar mais caro para os estrangeiros os preços dos ativos domésticos brasileiros"
     ],
-    "correct": 3,
+    "correct": 2,
     "categoria": "Economia"
   },
   {
@@ -354,7 +354,7 @@ const allQuestions = [
       "aumentar o volume de depósitos bancários",
       "aumentar a liquidez dos títulos públicos federais"
     ],
-    "correct": 1,
+    "correct": 2,
     "categoria": "Economia"
   },
   {
@@ -414,7 +414,7 @@ const allQuestions = [
       "Bens públicos são disputáveis e passíveis de exclusão do consumidor",
       "O petróleo, a energia elétrica e a educação são exemplos de bens públicos, por isso é necessária a intervenção do Estado"
     ],
-    "correct": 0,
+    "correct": 1,
     "categoria": "Economia"
   },
   {
@@ -458,11 +458,11 @@ const allQuestions = [
     "opts": [
       "expansionista, redução, reduzindo, expandindo",
       "contracionista, redução, reduzindo, reduzindo",
-      "expancionista, redução, reduzindo, reduzindo",
+      "expansionista, redução, reduzindo, reduzindo",
       "contracionista, expansão, aumentando, expandindo",
       "contracionista, redução, aumentando, reduzindo"
     ],
-    "correct": 4,
+    "correct": 0,
     "categoria": "Economia"
   },
   {
@@ -510,7 +510,7 @@ const allQuestions = [
       "13",
       "15"
     ],
-    "correct": 4,
+    "correct": 2,
     "categoria": "Economia"
   },
   {
