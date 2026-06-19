@@ -327,6 +327,7 @@
     .bar.B { background: linear-gradient(180deg, #4FC3F7, #0277BD); }
     .bar.C { background: linear-gradient(180deg, #81C784, #2E7D32); }
     .bar.D { background: linear-gradient(180deg, #FF8A65, #BF360C); }
+    .bar.E { background: linear-gradient(180deg, #BA68C8, #8E24AA); }
     .bar-label { font-weight: 700; color: var(--muted); font-size: .9rem; }
     .bar-pct { font-size: .85rem; color: var(--corn); font-weight: 700; }
 
@@ -794,8 +795,8 @@ function shuffleQuestionOptions(q) {
   // Create a copy to avoid modifying the original
   const shuffled = { ...q, opts: [...q.opts] };
   
-  // Create array of indices [0, 1, 2, 3]
-  const indices = [0, 1, 2, 3];
+  // Create array of indices [0, 1, ..., n-1] based on number of options
+  const indices = Array.from({ length: q.opts.length }, (_, i) => i);
   
   // Shuffle indices
   for (let i = indices.length - 1; i > 0; i--) {
@@ -842,7 +843,7 @@ function loadQuestion() {
 
   const grid = document.getElementById('options-grid');
   grid.innerHTML = '';
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   q.opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
@@ -925,7 +926,7 @@ function showResult(isCorrect, correctIdx) {
   initAudio();
   playSound(isCorrect ? 'correct' : 'wrong');
   const q = questions[currentQ];
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   const modal = document.getElementById('modal-result');
   const isLastQuestion = currentQ + 1 >= questions.length;
 
@@ -1058,7 +1059,7 @@ function useUniversity() {
 
   // 80% chance correct, 20% wrong
   let hint;
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   if (Math.random() < 0.82) {
     hint = `Hmm, analisando bem a questão, acredito que a resposta é a alternativa <strong>${letters[q.correct]}) ${q.opts[q.correct]}</strong>. Estou razoavelmente confiante nisso, mas confirme com seu material de estudo!`;
   } else {
@@ -1086,7 +1087,7 @@ function useCards() {
   const toElim = shuffle(wrongs).slice(0, 2);
   pendingCards = toElim;
 
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   const display = document.getElementById('cards-display');
   display.innerHTML = '';
   q.opts.forEach((opt, i) => {
@@ -1124,7 +1125,7 @@ function useAudience() {
   initAudio(); playSound('lifeline');
 
   const q = questions[currentQ];
-  const letters = ['A', 'B', 'C', 'D'];
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   // Generate audience percentages biased toward correct
   let pcts = generateAudiencePcts(q.correct, q.opts.length, eliminatedOpts);
@@ -1135,7 +1136,6 @@ function useAudience() {
   barsDiv.innerHTML = '';
   labelsDiv.innerHTML = '';
 
-  const colors = ['A', 'B', 'C', 'D'];
   const maxPct = Math.max(...pcts);
 
   q.opts.forEach((opt, i) => {
@@ -1143,12 +1143,12 @@ function useAudience() {
     const wrap = document.createElement('div');
     wrap.className = 'bar-wrap';
     const bar = document.createElement('div');
-    bar.className = 'bar ' + colors[i];
+    // Use letter as class (A,B,C,...) — CSS defines styles for at least A..E
+    bar.className = 'bar ' + letters[i];
     bar.style.height = '4px';
     wrap.innerHTML = `<span class="bar-pct">${pcts[i]}%</span>`;
     wrap.appendChild(bar);
     wrap.innerHTML += `<span class="bar-label">${letters[i]}</span>`;
-    // Re-inject bar
     const pctSpan = wrap.querySelector('.bar-pct');
     wrap.insertBefore(bar, pctSpan);
     barsDiv.appendChild(wrap);
